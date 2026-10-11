@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kapda Culture — Apna Style, Apni Kahani</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e7;--ink:#14213d;--indigo:#1d2f6f;--haldi:#f2b01e;--brick:#b8452d;--card:#fffaf0;--line:#d9cfba;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1530;--ink:#f6f1e7;--indigo:#f2b01e;--haldi:#f2b01e;--card:#182046;--line:#2b3566}}
+:root[data-theme="dark"]{--bg:#0f1530;--ink:#f6f1e7;--indigo:#f2b01e;--haldi:#f2b01e;--card:#182046;--line:#2b3566}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "DM Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Impact,sans-serif;line-height:1;margin:0}
+a{color:inherit}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;background:var(--bg);border-bottom:2px solid var(--ink)}
+.logo{font:800 22px "Bricolage Grotesque",sans-serif;text-decoration:none}
+nav{display:flex;gap:22px;align-items:center}
+nav a{text-decoration:none;font-weight:500}
+.cart{background:var(--ink);color:var(--bg);border:0;border-radius:99px;padding:8px 16px;font:700 15px "DM Sans",sans-serif;cursor:pointer}
+:focus-visible{outline:3px solid var(--brick);outline-offset:3px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;padding:6vw 5vw;min-height:78vh;border-bottom:2px solid var(--ink)}
+.hero h1{font-size:clamp(52px,11vw,150px);font-weight:800;letter-spacing:-.04em}
+.hero h1 span{display:block;color:var(--brick)}
+.hero p{max-width:34ch;font-size:19px;margin:22px 0 28px}
+.btn{display:inline-block;background:var(--haldi);color:#14213d;font-weight:700;padding:14px 26px;border:2px solid #14213d;border-radius:8px;text-decoration:none;box-shadow:5px 5px 0 #14213d;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translate(3px,3px);box-shadow:2px 2px 0 #14213d}
+.stamp{aspect-ratio:1;background:var(--indigo);border-radius:50%;display:grid;place-items:center;color:var(--bg);text-align:center;padding:14%;border:6px double var(--haldi)}
+.stamp b{font:800 clamp(28px,5vw,64px)/1 "Bricolage Grotesque",sans-serif;display:block}
+.marquee{background:var(--haldi);color:#14213d;border-bottom:2px solid var(--ink);overflow:hidden;white-space:nowrap;padding:12px 0;font:700 18px "Bricolage Grotesque",sans-serif}
+.marquee div{display:inline-block;animation:m 28s linear infinite}
+@keyframes m{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.marquee div{animation:none}}
+section{padding:70px 5vw}
+h2{font-size:clamp(34px,6vw,64px);font-weight:800;letter-spacing:-.03em;margin-bottom:34px}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{border:2px solid var(--ink);background:none;color:var(--ink);padding:8px 18px;border-radius:99px;font:500 15px "DM Sans",sans-serif;cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.p{background:var(--card);border:2px solid var(--ink);border-radius:10px;overflow:hidden}
+.p .img{height:210px;display:grid;place-items:center}
+.p .img svg{width:120px;fill:rgba(255,255,255,.92);stroke:#14213d;stroke-width:3}
+.p .i{padding:14px 16px 18px}
+.p h3{font-size:21px;margin-bottom:4px}
+.p small{opacity:.75}
+.row{display:flex;justify-content:space-between;align-items:center;margin-top:12px}
+.row b{font-size:19px}
+.add{background:var(--ink);color:var(--bg);border:0;border-radius:6px;padding:8px 14px;font:700 14px "DM Sans",sans-serif;cursor:pointer}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:40px;background:var(--indigo);color:#f6f1e7}
+.story h2{color:#f2b01e}
+.story p{max-width:48ch}
+.vals{display:grid;gap:16px;align-content:start}
+.vals div{border-left:5px solid #f2b01e;padding-left:16px}
+.vals b{font:700 21px "Bricolage Grotesque",sans-serif}
+form{display:flex;gap:10px;flex-wrap:wrap;max-width:520px}
+input{flex:1;min-width:200px;padding:14px;border:2px solid var(--ink);border-radius:8px;background:var(--card);color:var(--ink);font:inherit}
+footer{padding:30px 5vw;border-top:2px solid var(--ink);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,120px);background:var(--ink);color:var(--bg);padding:12px 22px;border-radius:8px;transition:transform .25s;font-weight:500}
+#toast.on{transform:translate(-50%,0)}
+@media (max-width:760px){.hero,.story{grid-template-columns:1fr}.stamp{max-width:260px}nav a{display:none}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="#top">Kapda Culture</a>
+<nav><a href="#shop">Shop</a><a href="#kahani">Hamari Kahani</a><a href="#join">Join</a>
+<button class="cart" id="cartBtn" aria-label="Cart">Cart (<span id="cnt">0</span>)</button></nav>
+</header>
+
+<main id="top">
+<div class="hero">
+<div>
+<h1>Kapda <span>Culture</span></h1>
+<p>Desi soch, street style. Aise kapde jo tumhari kahani bolein.</p>
+<a class="btn" href="#shop">Shop karo</a>
+</div>
+<div class="stamp"><div><b>100%</b>cotton.<br>100% desi.</div></div>
+</div>
+
+<div class="marquee"><div>Naya Drop Aa Gaya &nbsp;★&nbsp; Free delivery ₹999 se upar &nbsp;★&nbsp; 7 din easy return &nbsp;★&nbsp; Cash on Delivery available &nbsp;★&nbsp; Naya Drop Aa Gaya &nbsp;★&nbsp; Free delivery ₹999 se upar &nbsp;★&nbsp; 7 din easy return &nbsp;★&nbsp; Cash on Delivery available &nbsp;★&nbsp;</div></div>
+
+<section id="shop">
+<h2>Naya Collection</h2>
+<div class="tabs" id="tabs">
+<button aria-pressed="true" data-c="all">Sab</button>
+<button aria-pressed="false" data-c="Tees">Tees</button>
+<button aria-pressed="false" data-c="Hoodies">Hoodies</button>
+<button aria-pressed="false" data-c="Kurta">Kurta</button>
+</div>
+<div class="grid" id="grid"></div>
+</section>
+
+<section class="story" id="kahani">
+<div>
+<h2>Kapda sirf kapda nahi, culture hai.</h2>
+<p>Kapda Culture ek chhoti si soch se shuru hua: gali ke rang, chai ki baatein aur mela ki masti ko kapdon mein utaarna. Humare kapde soft cotton ke hain, sahi fitting ke, aur sahi daam par.</p>
+</div>
+<div class="vals">
+<div><b>Soft cotton</b><br>Din bhar pehno, aaram se.</div>
+<div><b>Pakka rang</b><br>Dhone ke baad bhi fade nahi.</div>
+<div><b>Sahi daam</b><br>Brand wali quality, bina brand wale daam ke.</div>
+</div>
+</section>
+
+<section id="join">
+<h2>Drop ki khabar sabse pehle.</h2>
+<form id="f"><input type="email" required placeholder="Tumhara email" aria-label="Email"><button class="btn" type="submit" style="cursor:pointer;font:inherit;font-weight:700">Join karo</button></form>
+</section>
+</main>
+
+<footer><b>Kapda Culture</b><span>Varanasi se, pyaar ke saath.</span></footer>
+<div id="toast" role="status"></div>
+
+<script>
+var P=[
+{n:"Chai Tapri Tee",c:"Tees",p:599,col:"#b8452d",t:"Oversized, soft cotton"},
+{n:"Ganga Ghat Tee",c:"Tees",p:649,col:"#1d2f6f",t:"Regular fit, print front"},
+{n:"Haldi Boxy Tee",c:"Tees",p:549,col:"#d9961a",t:"Boxy fit, plain"},
+{n:"Nila Hoodie",c:"Hoodies",p:1499,col:"#14213d",t:"Fleece lining, heavy"},
+{n:"Mehendi Zip Hoodie",c:"Hoodies",p:1699,col:"#5a7a3a",t:"Zip-up, relaxed fit"},
+{n:"Rangoli Kurta",c:"Kurta",p:1199,col:"#8c2f5c",t:"Short kurta, block print"},
+{n:"Khadi Kurta",c:"Kurta",p:1299,col:"#8a7a5c",t:"Hand-feel khadi cotton"},
+{n:"Mela Kurta",c:"Kurta",p:1099,col:"#c8641e",t:"Bright, festive wear"}];
+var n=0,g=document.getElementById("grid"),toast=document.getElementById("toast"),tt;
+var tee='<svg viewBox="0 0 100 100"><path d="M30 12 L10 28 L22 42 L30 36 L30 88 L70 88 L70 36 L78 42 L90 28 L70 12 Q50 24 30 12Z"/></svg>';
+function show(c){g.innerHTML="";P.forEach(function(x,i){if(c!=="all"&&x.c!==c)return;
+var d=document.createElement("div");d.className="p";
+d.innerHTML='<div class="img" style="background:'+x.col+'">'+tee+'</div><div class="i"><h3>'+x.n+'</h3><small>'+x.t+'</small><div class="row"><b>₹'+x.p+'</b><button class="add" data-i="'+i+'">Cart mein daalo</button></div></div>';
+g.appendChild(d)})}
+function say(m){toast.textContent=m;toast.classList.add("on");clearTimeout(tt);tt=setTimeout(function(){toast.classList.remove("on")},2200)}
+g.addEventListener("click",function(e){var b=e.target.closest(".add");if(!b)return;n++;document.getElementById("cnt").textContent=n;say(P[b.dataset.i].n+" cart mein add ho gaya")});
+document.getElementById("tabs").addEventListener("click",function(e){var b=e.target.closest("button");if(!b)return;
+this.querySelectorAll("button").forEach(function(x){x.setAttribute("aria-pressed",x===b)});show(b.dataset.c)});
+document.getElementById("cartBtn").onclick=function(){say(n?n+" item cart mein hain":"Cart abhi khaali hai")};
+document.getElementById("f").onsubmit=function(e){e.preventDefault();this.reset();say("Shukriya! Hum drop ki khabar bhejenge.")};
+show("all");
+</script>
+</body>
+</html>
